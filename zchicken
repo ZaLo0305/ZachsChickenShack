@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zach's Chicken Shack</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Zach's Chicken Shack</h1>
+        <p>Delicious hot chicken, simple menu, fresh flavors.</p>
+    </header>
+
+    <main>
+        <!-- Menu Section -->
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <div class="menu-item" onclick="showOrderForm('Hot Chicken Sandwich', 5)">
+                <img src="images/chicken_sandwich.jpg" alt="Hot Chicken Sandwich" class="menu-img">
+                <div class="menu-details">
+                    <h3>Hot Chicken Sandwich - $5</h3>
+                    <button class="order-btn">Order Now</button>
+                </div>
+            </div>
+            <div class="menu-item" onclick="showOrderForm('Hot Chicken Tenders', 5)">
+                <img src="images/chicken_tenders.jpg" alt="Hot Chicken Tenders" class="menu-img">
+                <div class="menu-details">
+                    <h3>Hot Chicken Tenders - $5</h3>
+                    <button class="order-btn">Order Now</button>
+                </div>
+            </div>
+            <div class="menu-item" onclick="showOrderForm('Hot Maple Bacon Chicken Sandwich', 8)">
+                <img src="images/maple_bacon_sandwich.jpg" alt="Hot Maple Bacon Chicken Sandwich" class="menu-img">
+                <div class="menu-details">
+                    <h3>Hot Maple Bacon Chicken Sandwich - $8</h3>
+                    <button class="order-btn">Order Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Form Section (Hidden Initially) -->
+<form id="order-form">
+    <h2>Customize Your Order: <span id="item-name"></span></h2>
+    <p id="item-price"></p>
+
+    <label for="side">Choose a side:</label>
+    <select id="side" name="side">
+        <option value="mac">Mac & Cheese - $2</option>
+        <option value="cajun-fries">Cajun Fries - $2</option>
+        <option value="loaded-mac">Loaded Mac & Cheese - +$4</option>
+        <option value="loaded-fries">Loaded Cajun Fries - +$4</option>
+    </select>
+
+    <label for="phone">Enter your phone number:</label>
+    <input type="text" id="phone" name="phone" placeholder="123-456-7890" required>
+
+    <div class="submit-btn">
+        <button type="button" onclick="submitOrder()">Place Order</button>
+    </div>
+</form>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Zach's Chicken Shack</p>
+    </footer>
+
+    <script>
+      
+        function showOrderForm(item, price) {
+            // Hide menu and show the order form
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('order-section').style.display = 'block';
+            document.getElementById('item-name').textContent = item;
+            document.getElementById('item-price').textContent = `Price: $${price}`;
+        }
+
+        function placeOrder() {
+            const item = document.getElementById('item-name').textContent;
+            const side = document.getElementById('side').value;
+            alert(`You ordered: ${item} with ${side}`);
+        }
+      
+      
+    </script>
+</body>
+</html>
